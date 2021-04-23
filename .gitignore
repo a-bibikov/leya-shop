@@ -1,2 +1,10 @@
 /leya-shop.ru.iml
 /.idea/
+/node_modules/
+/bitrix/
+/auth/
+/desktop_app/
+/pub/
+/upload/
+/catalog/
+*index.php
