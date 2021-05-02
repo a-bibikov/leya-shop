@@ -412,6 +412,7 @@ body
 
     &-item
       line-height: 1.5
+
       &:not(:last-child)
         margin-bottom: 12px
 
@@ -424,8 +425,10 @@ body
     &-count
       font-size: 11px
       opacity: 0.3
+
       &:before
         content: '('
+
       &:after
         content: ')'
 
@@ -537,6 +540,9 @@ body
       height: 100%
       width: 100%
 
+    &-image-link
+      display: block
+
     &-figure
       margin: 0
       background: #eeeeee
@@ -573,6 +579,9 @@ body
       font-weight: 500
       font-family: 'Roboto Slab', sans-serif
       line-height: 1.25
+
+      &-link
+        display: block
 
     &-actions
       display: flex
@@ -700,6 +709,7 @@ body
       @media only screen and (min-width: 1280px)
         font-size: 18px
         line-height: 1.5
+
       & a
         text-decoration: none
         color: #141414
@@ -726,6 +736,7 @@ body
       width: calc(100% / 3 - 24px)
     @media only screen and (min-width: 1280px)
       width: calc(100% / 4 - 24px)
+
   &__wrap
     @media only screen and (min-width: 768px)
       display: flex
@@ -739,6 +750,7 @@ body
       margin-left: 40px
     @media only screen and (min-width: 1280px)
       width: calc(100% - 300px - 80px)
+
   &__list
     display: flex
     flex-wrap: wrap
@@ -753,3 +765,147 @@ body
       margin-right: 40px
     @media only screen and (min-width: 1280px)
       width: 300px
+
+.product
+  &__image
+    & picture
+      display: flex
+      flex-wrap: wrap
+      justify-content: center
+      align-items: center
+      width: 100%
+      height: 100%
+      padding: 16px
+      box-sizing: border-box
+
+      & img
+        max-width: 100%
+        max-height: 100%
+        display: block
+
+  &__thumbs
+    display: flex
+
+  &__thumb
+    width: 80px
+    height: 80px
+
+    &:not(:last-child)
+      margin-right: 12px
+
+    &-image
+      margin: 0
+      display: block
+      width: 100%
+      height: 100%
+      border: 1px solid #eeeeee
+
+      & picture
+        display: flex
+        flex-wrap: wrap
+        justify-content: center
+        align-items: center
+        width: 100%
+        height: 100%
+        padding: 8px
+        box-sizing: border-box
+        @media only screen and (min-width: 768px)
+          padding: 16px
+
+        & img
+          max-width: 100%
+          max-height: 100%
+          display: block
+
+  &__content
+    margin-top: 60px
+
+  &__category
+    text-align: center
+
+    &-text
+      opacity: 0.5
+      font-size: 12px
+      margin-bottom: 2px
+
+    &-title
+      color: #fe2c6c
+      font-size: 16px
+      text-transform: uppercase
+      border-bottom: 1px solid
+      display: inline-block
+      padding: 2px
+
+  &__price
+    margin-top: 40px
+    text-align: center
+
+    &-current
+      font-weight: 500
+      font-family: 'Roboto Slab', serif
+      color: #FF006C
+      font-size: 40px
+
+  &__action
+    margin-top: 40px
+
+  &__action
+    background: #ff006c
+    color: #ffffff
+    font-size: 18px
+    font-weight: 500
+    font-family: 'Roboto Slab', sans-serif
+    display: inline-flex
+    border-radius: 50px
+    padding: 14px 24px
+    text-decoration: none
+    width: 100%
+    max-width: 320px
+    box-sizing: border-box
+    align-items: center
+    justify-content: space-between
+
+    &:before
+      display: inline-flex
+      width: 8px
+      height: 8px
+      background: #ffffff
+      border-radius: 50%
+      content: ''
+
+    &:after
+      display: inline-flex
+      width: 8px
+      height: 8px
+      background: #ffffff
+      border-radius: 50%
+      content: ''
+
+  &__info
+    margin-top: 60px
+
+    &-title
+      font-family: 'Roboto Slab', sans-serif
+      font-weight: 500
+      text-transform: uppercase
+      font-size: 16px
+      border-bottom: 1px solid #FF006C
+      padding-bottom: 4px
+      margin-bottom: 20px
+      text-align: center
+
+    &-item
+      display: flex
+      flex-wrap: wrap
+      justify-content: space-between
+      border-bottom: 1px dotted #dcdcdc
+
+      &:not(:last-child)
+        margin-bottom: 20px
+
+    &-prop
+      opacity: 0.65
+      font-size: 14px
+
+    &-value
+      font-size: 14px

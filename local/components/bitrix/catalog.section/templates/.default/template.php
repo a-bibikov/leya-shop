@@ -25,13 +25,16 @@ $this->setFrameMode(true);
 <div class="products__list">
 <?foreach ($arResult["ITEMS"] as $arItem):?>
     <div class="catalog__item">
-        <figure class="catalog__item-figure">
-            <picture>
-                <img src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>" alt="" class="catalog__item-image">
-            </picture>
-        </figure>
+
+            <figure class="catalog__item-figure">
+                <a href="<?=$arItem["DETAIL_PAGE_URL"]?>" class="catalog__item-image-link">
+                <picture>
+                    <img src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>" alt="" class="catalog__item-image">
+                </picture>
+                </a>
+            </figure>
         <div class="catalog__item-info">
-            <div class="catalog__item-title"><?=$arItem["NAME"]?></div>
+            <div class="catalog__item-title"><a href="<?=$arItem["DETAIL_PAGE_URL"]?>" class="catalog__item-title-link"><?=$arItem["NAME"]?></a></div>
         </div>
         <div class="catalog__item-actions">
             <div class="catalog__item-price">
@@ -48,4 +51,4 @@ $this->setFrameMode(true);
     <?=$arResult['NAV_STRING']?>
     <!-- pagination-container -->
 </div>
-<?//printr($arResult)?>
+<?printr($arResult)?>
