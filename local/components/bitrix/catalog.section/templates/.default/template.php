@@ -25,7 +25,6 @@ $this->setFrameMode(true);
 <div class="products__list">
 <?foreach ($arResult["ITEMS"] as $arItem):?>
     <div class="catalog__item">
-
             <figure class="catalog__item-figure">
                 <a href="<?=$arItem["DETAIL_PAGE_URL"]?>" class="catalog__item-image-link">
                 <picture>
@@ -38,17 +37,16 @@ $this->setFrameMode(true);
         </div>
         <div class="catalog__item-actions">
             <div class="catalog__item-price">
-                <!--<div class="catalog__item-oldprice"><s>4900 ₽</s></div>-->
-                <div class="catalog__item-curprice"><?=$arItem["MIN_PRICE"]["PRINT_VALUE"]?></div>
+                <?if(!empty($arItem["PRICES"]["WHOLESALE_PRICE"]["PRINT_VALUE"])):?>
+                    <div class="catalog__item-oldprice"><s><?=$arItem["PRICES"]["BASE_PRICE"]["PRINT_VALUE"]?></s></div>
+                    <div class="catalog__item-curprice"><?=$arItem["PRICES"]["WHOLESALE_PRICE"]["PRINT_DISCOUNT_VALUE"]?></div>
+                <?else:?>
+                    <div class="catalog__item-curprice"><?=$arItem["MIN_PRICE"]["PRINT_DISCOUNT_VALUE"]?></div>
+                <?endif?>
             </div>
-            <div class="catalog__item-addtocart">В корзину</div>
+            <a href="<?=$arItem["ADD_URL"]?>" class="catalog__item-addtocart">В корзину</a>
         </div>
     </div>
 <?endforeach;?>
 </div>
-<div data-pagination-num="<?=$navParams['NavNum']?>">
-    <!-- pagination-container -->
-    <?=$arResult['NAV_STRING']?>
-    <!-- pagination-container -->
-</div>
-<?printr($arResult)?>
+<?printr($arResult["ITEMS"][0])?>

@@ -513,6 +513,7 @@ body {
 
 .catalog__item-title-link {
   display: block;
+  color: #141414;
 }
 
 .catalog__item-actions {
@@ -557,6 +558,8 @@ body {
   border-radius: 50px;
   border: 1px solid #FF006C;
   font-size: 10px;
+  color: #141414;
+  text-decoration: none;
 }
 
 .sections {
@@ -684,6 +687,12 @@ body {
   margin-right: -12px;
 }
 
+.product__image {
+  margin: 0;
+  background: #eeeeee;
+  width: 100%;
+}
+
 .product__image picture {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -697,22 +706,34 @@ body {
       -ms-flex-align: center;
           align-items: center;
   width: 100%;
-  height: 100%;
-  padding: 16px;
+  padding-top: 100%;
+  background-color: #ffffff;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  position: relative;
 }
 
 .product__image picture img {
-  max-width: 100%;
-  max-height: 100%;
-  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.product__image picture img-figure {
+  margin: 0;
+  background: #eeeeee;
+  width: 100%;
 }
 
 .product__thumbs {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  margin-top: 40px;
 }
 
 .product__thumb {
@@ -785,6 +806,24 @@ body {
   text-align: center;
 }
 
+.product__price-base {
+  margin-bottom: 24px;
+}
+
+.product__price-base-title {
+  font-size: 12px;
+  opacity: 0.65;
+  margin-bottom: 4px;
+  width: 100%;
+}
+
+.product__price-wholesale-title {
+  font-size: 16px;
+  font-family: 'Roboto Slab', sans-serif;
+  margin-bottom: 8px;
+  width: 100%;
+}
+
 .product__price-current {
   font-weight: 500;
   font-family: 'Roboto Slab', serif;
@@ -792,8 +831,36 @@ body {
   font-size: 40px;
 }
 
-.product__action {
+.product__price-old {
+  display: block;
+  font-size: 20px;
+  opacity: 0.65;
+  font-family: 'Roboto Slab', sans-serif;
+  margin-bottom: 4px;
+  margin-right: 12px;
+}
+
+.product__price-value {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+}
+
+.product__actions {
   margin-top: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .product__action {
@@ -1082,8 +1149,49 @@ body {
     margin-right: 40px;
   }
 
+  .product__wrap {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+
+  .product__images {
+    width: 50%;
+  }
+
   .product__thumb-image picture {
     padding: 16px;
+  }
+
+  .product__content {
+    width: 50%;
+    padding-left: 80px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+
+  .product__category {
+    text-align: left;
+  }
+
+  .product__price {
+    text-align: left;
+  }
+
+  .product__actions {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+
+  .product__info-title {
+    text-align: left;
+    margin-bottom: 40px;
   }
 }
 
@@ -1247,6 +1355,11 @@ body {
   .products__aside {
     width: 300px;
   }
+
+  .product {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
 }
 
 @media only screen and (min-width: 1440px) {
@@ -1322,6 +1435,21 @@ body {
 
   .sections__info-title {
     font-size: 60px;
+  }
+
+  .product {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+
+  .product__images {
+    width: 40%;
+  }
+
+  .product__content {
+    width: 60%;
+    padding-left: 120px;
+    padding-top: 40px;
   }
 }
 

@@ -582,6 +582,7 @@ body
 
       &-link
         display: block
+        color: #141414
 
     &-actions
       display: flex
@@ -614,6 +615,8 @@ body
       border-radius: 50px
       border: 1px solid #FF006C
       font-size: 10px
+      color: #141414
+      text-decoration: none
       @media only screen and (min-width: 768px)
         font-size: 12px
 
@@ -767,24 +770,53 @@ body
       width: 300px
 
 .product
+  @media only screen and (min-width: 1280px)
+    padding-left: 40px
+    padding-right: 40px
+  @media only screen and (min-width: 1440px)
+    padding-left: 80px
+    padding-right: 80px
+  &__wrap
+    @media only screen and (min-width: 768px)
+      display: flex
+      flex-wrap: wrap
+      justify-content: space-between
+  &__images
+    @media only screen and (min-width: 768px)
+      width: 50%
+    @media only screen and (min-width: 1440px)
+      width: 40%
   &__image
+    margin: 0
+    background: #eeeeee
+    width: 100%
     & picture
       display: flex
       flex-wrap: wrap
       justify-content: center
       align-items: center
       width: 100%
-      height: 100%
-      padding: 16px
+      padding-top: 100%
+      background-color: #ffffff
       box-sizing: border-box
+      position: relative
 
       & img
-        max-width: 100%
-        max-height: 100%
-        display: block
+        width: 100%
+        height: 100%
+        object-fit: contain
+        position: absolute
+        top: 0
+        left: 0
+
+        &-figure
+          margin: 0
+          background: #eeeeee
+          width: 100%
 
   &__thumbs
     display: flex
+    margin-top: 40px
 
   &__thumb
     width: 80px
@@ -819,9 +851,19 @@ body
 
   &__content
     margin-top: 60px
+    @media only screen and (min-width: 768px)
+      width: 50%
+      padding-left: 80px
+      box-sizing: border-box
+    @media only screen and (min-width: 1440px)
+      width: 60%
+      padding-left: 120px
+      padding-top: 40px
 
   &__category
     text-align: center
+    @media only screen and (min-width: 768px)
+      text-align: left
 
     &-text
       opacity: 0.5
@@ -839,6 +881,22 @@ body
   &__price
     margin-top: 40px
     text-align: center
+    @media only screen and (min-width: 768px)
+      text-align: left
+
+    &-base
+      margin-bottom: 24px
+      &-title
+        font-size: 12px
+        opacity: 0.65
+        margin-bottom: 4px
+        width: 100%
+    &-wholesale
+      &-title
+        font-size: 16px
+        font-family: 'Roboto Slab', sans-serif
+        margin-bottom: 8px
+        width: 100%
 
     &-current
       font-weight: 500
@@ -846,8 +904,26 @@ body
       color: #FF006C
       font-size: 40px
 
-  &__action
+    &-old
+      display: block
+      font-size: 20px
+      opacity: 0.65
+      font-family: 'Roboto Slab', sans-serif
+      margin-bottom: 4px
+      margin-right: 12px
+
+    &-value
+      display: flex
+      flex-wrap: wrap
+      align-items: baseline
+
+  &__actions
     margin-top: 40px
+    display: flex
+    flex-wrap: wrap
+    justify-content: center
+    @media only screen and (min-width: 768px)
+      justify-content: flex-start
 
   &__action
     background: #ff006c
@@ -893,6 +969,9 @@ body
       padding-bottom: 4px
       margin-bottom: 20px
       text-align: center
+      @media only screen and (min-width: 768px)
+        text-align: left
+        margin-bottom: 40px
 
     &-item
       display: flex
