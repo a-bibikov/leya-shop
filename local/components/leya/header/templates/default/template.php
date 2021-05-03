@@ -1,5 +1,9 @@
 <?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die()?>
-<div class="header">
+<?if($APPLICATION->GetCurPage(false) == '/') {
+    $main_page = 'main_page';
+}
+?>
+<div class="header <?=$main_page?>">
     <div class="wrap">
         <div class="header__wrap">
             <?if($APPLICATION->GetCurPage(false) == '/'):?>
