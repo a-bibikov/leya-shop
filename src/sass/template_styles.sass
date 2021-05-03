@@ -26,6 +26,7 @@ body
 .header
   padding-top: 24px
   padding-bottom: 24px
+  background: #1c2228
 
   &__wrap
     display: flex
@@ -50,6 +51,11 @@ body
     @media only screen and (min-width: 1280px)
       width: 315px
 
+    &-link
+      display: inline-block
+      text-decoration: none
+      color: #141414
+
 
     &-name
       margin: 0
@@ -59,6 +65,7 @@ body
       opacity: 0.65
       max-width: 200px
       margin: 0 auto
+      color: #ffffff
       @media only screen and (min-width: 768px)
         margin-left: 0
         font-size: 12px
@@ -79,9 +86,10 @@ body
       border-radius: 50px
       box-sizing: border-box
       border: 1px solid #FF006C
+      background: #ff006c
       font-size: 14px
       text-decoration: none
-      color: #141414
+      color: #ffffff
 
   &__contacts
     display: none
@@ -98,7 +106,7 @@ body
     &-number
       display: inline-flex
       margin-right: 12px
-      color: #141414
+      color: #ffffff
       font-size: 14px
       font-family: 'Roboto Slab', sans-serif
       letter-spacing: 0.5px
@@ -167,6 +175,7 @@ body
     &-text
       font-size: 12px
       font-family: 'Roboto Slab', sans-serif
+      color: #ffffff
       @media only screen and (min-width: 768px)
         padding-left: 12px
         box-sizing: border-box
@@ -180,6 +189,11 @@ body
   background: #E8EDF1
   padding-top: 20px
   padding-bottom: 20px
+  margin-bottom: 40px
+  @media only screen and (min-width: 768px)
+    margin-bottom: 60px
+  @media only screen and (min-width: 1280px)
+    margin-bottom: 120px
 
   &__wrap
     border-top: 1px solid #C5CDD3
@@ -619,20 +633,16 @@ body
       text-decoration: none
       @media only screen and (min-width: 768px)
         font-size: 12px
+        &:hover
+          text-decoration: none
 
 
 //SECTIONS COMPONENT
 .sections
-  padding-top: 40px
   padding-bottom: 40px
   box-sizing: border-box
-  @media only screen and (min-width: 1024px)
-    padding-top: 80px
   @media only screen and (min-width: 1440px)
-    padding-top: 120px
     padding-bottom: 120px
-
-  &__wrap
 
   &__info
     margin-bottom: 24px
@@ -776,20 +786,24 @@ body
   @media only screen and (min-width: 1440px)
     padding-left: 80px
     padding-right: 80px
+
   &__wrap
     @media only screen and (min-width: 768px)
       display: flex
       flex-wrap: wrap
       justify-content: space-between
+
   &__images
     @media only screen and (min-width: 768px)
       width: 50%
     @media only screen and (min-width: 1440px)
       width: 40%
+
   &__image
     margin: 0
     background: #eeeeee
     width: 100%
+
     & picture
       display: flex
       flex-wrap: wrap
@@ -839,10 +853,10 @@ body
         align-items: center
         width: 100%
         height: 100%
-        padding: 8px
+        padding: 4px
         box-sizing: border-box
         @media only screen and (min-width: 768px)
-          padding: 16px
+          padding: 8px
 
         & img
           max-width: 100%
@@ -886,11 +900,13 @@ body
 
     &-base
       margin-bottom: 24px
+
       &-title
         font-size: 12px
         opacity: 0.65
         margin-bottom: 4px
         width: 100%
+
     &-wholesale
       &-title
         font-size: 16px
@@ -988,3 +1004,159 @@ body
 
     &-value
       font-size: 14px
+
+
+.page__info
+  margin-bottom: 60px
+
+  &-wrap
+    @media only screen and (min-width: 768px)
+      padding-top: 24px
+      padding-left: 80px
+    @media only screen and (min-width: 1024px)
+      padding-left: 160px
+    @media only screen and (min-width: 1440px)
+      padding-left: 240px
+
+.breadcrumb
+  display: none
+  @media only screen and (min-width: 768px)
+    display: block
+    &__list
+      margin: 0
+      padding: 0
+      list-style: none
+      display: flex
+      flex-wrap: wrap
+    &__item
+      font-size: 12px
+
+      &:not(:last-child)
+        margin-right: 8px
+        margin-bottom: 12px
+
+        &:after
+          content: '/'
+          margin-left: 8px
+
+      &:last-child
+        opacity: 0.3
+
+      & a
+        text-decoration: none
+        color: #141414
+
+.page__title
+  @media only screen and (min-width: 768px)
+    position: relative
+    &:before
+      position: absolute
+      right: calc(100% + 40px)
+      top: calc(50% - 2px)
+      content: ''
+      display: block
+      background: #DCDCDC
+      height: 8px
+      width: 400%
+      opacity: 0.3
+
+  &-text
+    font-family: 'Roboto Slab', sans-serif
+    margin-top: 12px
+    margin-bottom: 12px
+    max-width: 860px
+    font-size: 32px
+    font-weight: 500
+    text-align: center
+    @media only screen and (min-width: 768px)
+      text-align: left
+      max-width: 680px
+    @media only screen and (min-width: 1024px)
+      font-size: 36px
+    @media only screen and (min-width: 1440px)
+      max-width: 880px
+
+.page__description
+  &-text
+    font-size: 14px
+    line-height: 1.5
+    opacity: 0.65
+    margin-top: 12px
+    text-align: center
+    box-sizing: border-box
+    padding-left: 12px
+    padding-right: 12px
+    @media only screen and (min-width: 768px)
+      text-align: left
+      padding: 0
+      max-width: 480px
+    @media only screen and (min-width: 1440px)
+      max-width: 680px
+      line-height: 1.75
+
+
+.mainmenu
+  display: none
+  background: #E8EDF1
+  @media only screen and (min-width: 768px)
+    display: block
+    margin-bottom: 20px
+  @media only screen and (min-width: 1440px)
+    margin-bottom: 28px
+
+  &__wrap
+    background: #E8EDF1
+    font-family: 'Roboto Slab', sans-serif
+
+
+  &__list
+    padding: 0
+    margin: 0
+    list-style: none
+    display: flex
+    flex-wrap: wrap
+    align-items: center
+
+  &__item
+    padding-top: 16px
+    padding-bottom: 16px
+
+    &:not(:last-child)
+      margin-right: 24px
+      @media only screen and (min-width: 1024px)
+        margin-right: 40px
+      @media only screen and (min-width: 1440px)
+        margin-right: 80px
+        padding-top: 20px
+        padding-bottom: 20px
+
+  &__main
+    margin-right: 40px
+    min-width: 120px
+    text-align: center
+    @media only screen and (min-width: 1440px)
+      min-width: 180px
+      margin-right: 60px
+
+    &-link
+      padding: 16px 24px
+      background: #ff006c
+      color: #ffffff
+      display: block
+      box-sizing: border-box
+      text-decoration: none
+      font-size: 14px
+      @media only screen and (min-width: 1440px)
+        font-size: 16px
+        padding-top: 20px
+        padding-bottom: 20px
+
+  &__link
+    display: block
+    color: #141414
+    text-decoration: none
+    font-size: 14px
+    &.selected
+      color: #ff006c
+    @media only screen and (min-width: 1440px)
+      font-size: 16px

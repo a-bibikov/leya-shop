@@ -14,14 +14,49 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
     <?$APPLICATION->AddHeadScript('/local/templates/leya/assets/js/main.js', true);?>
 </head>
 <body>
-<div id="panel">
-    <?$APPLICATION->ShowPanel();?>
-</div>
+    <div id="panel">
+        <?$APPLICATION->ShowPanel();?>
+    </div>
 
-<?$APPLICATION->IncludeComponent(
-    "leya:header",
-    "default",
-    array(
-    ),
-    false
-);?>
+    <?$APPLICATION->IncludeComponent(
+        "leya:header",
+        "default",
+        array(
+        ),
+        false
+    );?>
+
+    <div class="mainmenu">
+        <div class="wrap">
+            <?$APPLICATION->IncludeComponent(
+                "bitrix:menu",
+                "",
+                array(
+                ),
+                false
+            );?>
+        </div>
+    </div>
+    <?if($APPLICATION->GetCurPage(false) != '/'):?>
+    <div class="page__info">
+        <div class="wrap">
+            <div class="page__info-wrap">
+                <div class="breadcrumb">
+                    <?$APPLICATION->IncludeComponent(
+                        "bitrix:breadcrumb",
+                        "",
+                        array(
+                        ),
+                        false
+                    );?>
+                </div>
+                <div class="page__title">
+                    <h1 class="page__title-text"><?$APPLICATION->ShowTitle(false)?></h1>
+                </div>
+                <div class="page__description">
+                    <p class="page__description-text"><?$APPLICATION->ShowProperty("description")?></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <?endif?>
