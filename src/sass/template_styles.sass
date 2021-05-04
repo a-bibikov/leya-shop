@@ -43,6 +43,10 @@ body
   text-align: center
   transition: 0.25s ease-in
   appearance: none
+  @media only screen and (min-width: 768px)
+    width: auto
+    padding-left: 40px
+    padding-right: 40px
 
 
 //HEADER COMPONENT
@@ -1461,6 +1465,9 @@ body
     margin-bottom: 80px
     @media only screen and (min-width: 1024px)
       margin: 120px -120px 160px -160px
+    @media only screen and (min-width: 1440px)
+      margin-top: 200px
+      margin-bottom: 240px
 
     &-content
       text-align: center
@@ -1498,3 +1505,219 @@ body
       width: auto
       padding-left: 40px
       padding-right: 40px
+  &__textblock
+    margin-top: 40px
+    margin-bottom: 60px
+    @media only screen and (min-width: 768px)
+      width: calc(100% - 220px)
+      margin-top: 120px
+      margin-bottom: 160px
+    & p
+      font-size: 14px
+      line-height: 1.75
+      opacity: 0.8
+      @media only screen and (min-width: 1280px)
+        font-size: 16px
+    & ul
+      list-style: none
+      padding: 0
+      margin: 0
+      & li
+        line-height: 1.75
+        opacity: 0.8
+        padding-left: 40px
+        position: relative
+        font-size: 14px
+        @media only screen and (min-width: 1280px)
+          font-size: 16px
+        &:before
+          position: absolute
+          top: 9px
+          left: 12px
+          width: 8px
+          height: 8px
+          content: ''
+          display: block
+          border-radius: 50%
+          background: #ff006c
+        &:not(:last-child)
+          margin-bottom: 24px
+
+.contacts
+  &__page
+    padding-left: 20px
+    padding-right: 20px
+    box-sizing: border-box
+    margin-bottom: 120px
+  &__wrap
+    max-width: 400px
+    margin: 0 auto 60px
+    @media only screen and (min-width: 768px)
+      margin-left: 100px
+    @media only screen and (min-width: 1024px)
+      max-width: 100%
+      padding-left: 100px
+      padding-right: 100px
+      display: flex
+      flex-wrap: wrap
+      margin-left: 80px
+    @media only screen and (min-width: 1440px)
+      padding-left: 270px
+      padding-right: 180px
+
+  &__image
+    margin: 0
+    width: 100%
+    max-width: 360px
+    @media only screen and (min-width: 1024px)
+      width: 360px
+
+    & picture
+      display: flex
+      flex-wrap: wrap
+      justify-content: center
+      align-items: center
+      & img
+        width: 100%
+        height: 100%
+
+  &__block
+    margin-top: 40px
+    @media only screen and (min-width: 1024px)
+      width: calc(100% - 360px)
+      padding-left: 80px
+      box-sizing: border-box
+      margin-top: 20px
+  &__item
+    &:not(:last-child)
+      margin-bottom: 24px
+    &-name
+      font-size: 14px
+      font-family: 'Roboto Slab', serif
+      opacity: 0.65
+    &-values
+      margin-top: 4px
+    &-phone
+      font-size: 16px
+      font-family: 'Roboto Slab', serif
+      font-weight: 500
+      color: #1c2228
+      text-decoration: none
+    &-email
+      font-size: 16px
+      font-family: 'Roboto Slab', serif
+      font-weight: 500
+      color: #ff006c
+    &-adr
+      font-size: 16px
+      line-height: 24px
+      font-family: 'Roboto Slab', serif
+      position: relative
+  &__form
+    @media only screen and (min-width: 768px)
+      padding-left: 100px
+      padding-right: 100px
+      margin-top: 80px
+    @media only screen and (min-width: 1024px)
+      margin-left: 80px
+      margin-top: 160px
+    @media only screen and (min-width: 1440px)
+      padding-left: 270px
+      padding-right: 180px
+      max-width: 680px
+
+.opt__form
+  max-width: 680px
+
+.form
+  &__info
+    margin-bottom: 40px
+    & h2
+      font-size: 24px
+      font-weight: 600
+      font-family: 'Roboto Slab', sans-serif
+      margin-bottom: 8px
+    & p
+      font-size: 14px
+      opacity: 0.65
+
+  &__row
+    &:not(:last-child)
+      margin-bottom: 24px
+
+    @media only screen and (min-width: 1024px)
+      display: flex
+      flex-wrap: wrap
+      margin-left: -16px
+      margin-right: -16px
+  &__col
+    &--full
+      width: 100% !important
+    @media only screen and (min-width: 1024px)
+      width: calc(50% - 32px)
+      margin: 16px
+    &:not(:last-child)
+      margin-bottom: 24px
+
+  &__label
+    font-size: 14px
+    font-family: 'Roboto Slab', serif
+    display: flex
+    width: 100%
+    justify-content: flex-start
+    margin-bottom: 8px
+    padding-left: 32px
+    position: relative
+    align-items: center
+
+  &__input
+    border: 1px solid #E8EDF1
+    font-size: 14px
+    padding: 20px 32px
+    display: block
+    width: 100%
+    appearance: none
+    border-radius: 50px
+    box-sizing: border-box
+
+  &__actions
+    margin-top: 60px
+    @media only screen and (min-width: 768px)
+      padding-left: 16px
+      padding-right: 16px
+
+
+  &__button
+    @media only screen and (min-width: 768px)
+      display: inline-flex
+      width: auto
+      padding-left: 40px
+      padding-right: 40px
+
+textarea.form__input
+  border-radius: 8px
+  max-height: 240px
+  min-height: 180px
+  resize: vertical
+
+
+.legal
+  padding-left: 20px
+  padding-right: 20px
+  box-sizing: border-box
+  margin-bottom: 120px
+  @media only screen and (min-width: 768px)
+    padding-left: 80px
+  @media only screen and (min-width: 1024px)
+    padding-right: 100px
+    margin-left: 80px
+  @media only screen and (min-width: 1440px)
+    padding-left: 160px
+    padding-right: 180px
+  & h3
+    font-family: 'Roboto Slab', sans-serif
+    font-size: 24px
+    font-weight: 600
+  & p
+    font-size: 14px
+    line-height: 1.75
