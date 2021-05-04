@@ -25,13 +25,17 @@ $this->setFrameMode(true);
 <div class="products__list">
 <?foreach ($arResult["ITEMS"] as $arItem):?>
     <div class="catalog__item">
-            <figure class="catalog__item-figure">
-                <a href="<?=$arItem["DETAIL_PAGE_URL"]?>" class="catalog__item-image-link">
-                <picture>
+        <figure class="catalog__item-figure">
+            <a href="<?=$arItem["DETAIL_PAGE_URL"]?>" class="catalog__item-image-link">
+            <picture>
+                <?if(empty($arItem["PREVIEW_PICTURE"]["SRC"])):?>
+                    <img src="<?=SITE_TEMPLATE_PATH?>/assets/img/empty.svg" alt="" class="catalog__item-image">
+                <?else:?>
                     <img src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>" alt="" class="catalog__item-image">
-                </picture>
-                </a>
-            </figure>
+                <?endif?>
+            </picture>
+            </a>
+        </figure>
         <div class="catalog__item-info">
             <div class="catalog__item-title"><a href="<?=$arItem["DETAIL_PAGE_URL"]?>" class="catalog__item-title-link"><?=$arItem["NAME"]?></a></div>
         </div>

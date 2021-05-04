@@ -28,23 +28,29 @@ if (!empty($arResult['ITEMS']))
                 <div class="catalog__item">
                     <div class="catalog__item-wrap">
                         <figure class="catalog__item-figure">
-                            <picture>
-                                <?if(empty($arItem["PREVIEW_PICTURE"]["SRC"])):?>
-                                    <img src="<?=SITE_TEMPLATE_PATH?>/assets/img/empty.svg" alt="" class="catalog__item-image">
-                                <?else:?>
-                                    <img src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>" alt="" class="catalog__item-image">
-                                <?endif?>
-                            </picture>
+                            <a href="<?=$arItem["DETAIL_PAGE_URL"]?>" class="catalog__item-image-link">
+                                <picture>
+                                    <?if(empty($arItem["PREVIEW_PICTURE"]["SRC"])):?>
+                                        <img src="<?=SITE_TEMPLATE_PATH?>/assets/img/empty.svg" alt="" class="catalog__item-image">
+                                    <?else:?>
+                                        <img src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>" alt="" class="catalog__item-image">
+                                    <?endif?>
+                                </picture>
+                            </a>
                         </figure>
                         <div class="catalog__item-info">
-                            <div class="catalog__item-title"><?=$arItem["NAME"]?></div>
+                            <div class="catalog__item-title"><a href="<?=$arItem["DETAIL_PAGE_URL"]?>" class="catalog__item-title-link"><?=$arItem["NAME"]?></a></div>
                         </div>
                         <div class="catalog__item-actions">
                             <div class="catalog__item-price">
-                                <!--<div class="catalog__item-oldprice"><s>4900 ₽</s></div>-->
-                                <div class="catalog__item-curprice"><?=$arItem["MIN_PRICE"]["PRINT_VALUE"]?></div>
+                                <?if(!empty($arItem["PRICES"]["WHOLESALE_PRICE"]["PRINT_VALUE"])):?>
+                                    <div class="catalog__item-oldprice"><s><?=$arItem["PRICES"]["BASE_PRICE"]["PRINT_VALUE"]?></s></div>
+                                    <div class="catalog__item-curprice"><?=$arItem["PRICES"]["WHOLESALE_PRICE"]["PRINT_DISCOUNT_VALUE"]?></div>
+                                <?else:?>
+                                    <div class="catalog__item-curprice"><?=$arItem["MIN_PRICE"]["PRINT_DISCOUNT_VALUE"]?></div>
+                                <?endif?>
                             </div>
-                            <div class="catalog__item-addtocart">В корзину</div>
+                            <a href="<?=$arItem["ADD_URL"]?>" class="catalog__item-addtocart">В корзину</a>
                         </div>
                     </div>
                 </div>

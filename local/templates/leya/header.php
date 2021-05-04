@@ -42,7 +42,7 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
                             <div class="welcome__item-text">Сезонная РАСПРОДАЖА головных уборов, успей купить по выгодной цене! Подробности у менеджера по телефону +79139014757</div>
                             <div class="welcome__item-actions">
                                 <a href="#" class="welcome__item-action">Получить оптовое предложение</a>
-                                <a href="#" class="welcome__item-action">Каталог</a>
+                                <a href="#" class="welcome__item-action light">Каталог</a>
                             </div>
                         </div>
                         <figure class="welcome__item-bg">
@@ -59,7 +59,7 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
                             <div class="welcome__item-text">Сезонная РАСПРОДАЖА головных уборов, успей купить по выгодной цене! Подробности у менеджера по телефону +79139014757</div>
                             <div class="welcome__item-actions">
                                 <a href="#" class="welcome__item-action">Получить оптовое предложение</a>
-                                <a href="#" class="welcome__item-action">Каталог</a>
+                                <a href="#" class="welcome__item-action light">Каталог</a>
                             </div>
                         </div>
                         <figure class="welcome__item-bg">
