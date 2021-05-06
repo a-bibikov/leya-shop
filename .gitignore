@@ -8,3 +8,4 @@
 /upload/
 /catalog/
 *index.php
+/package-lock.json
