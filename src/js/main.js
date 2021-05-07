@@ -30,8 +30,28 @@ $(document).ready(function(){
             }
         })
     })
-
     $('.js-alert-close').on('click', () => {
         alert.removeClass('active');
+    })
+
+    const menu = $('.menu');
+    $('.js-menu-show').on('click', () => {
+        menu.addClass('active');
+    })
+    $('.js-menu-close').on('click', () => {
+        menu.removeClass('active');
+    })
+
+    window.addEventListener('scroll', function(e) {
+        let scrollPosition = window.scrollY;
+        console.log(scrollPosition)
+        if(scrollPosition > 1400) {
+            $('.scroll').addClass('active');
+        } else {
+            $('.scroll').removeClass('active');
+        }
+    });
+    $('.js-scroll-top').on('click', () => {
+        window.scrollTo(0, 0);
     })
 });

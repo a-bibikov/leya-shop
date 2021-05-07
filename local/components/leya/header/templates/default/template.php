@@ -50,7 +50,7 @@
                     <div class="header__cart-num">12</div>
                 </div>
             </div>
-            <div class="header__menu">
+            <div class="header__menu js-menu-show">
                 <figure class="header__menu-icon">
                     <picture>
                         <img src="<?=SITE_TEMPLATE_PATH?>/assets/img/icons/menu.svg" alt="">

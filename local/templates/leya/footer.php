@@ -174,5 +174,84 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
     </div>
     <div class="alert__overlay js-alert-close"></div>
 </div>
+<div class="menu">
+    <div class="menu__wrap">
+        <div class="menu__content">
+            <div class="menu__list">
+                <ul class="menu__list-items">
+                    <li class="menu__list-item">
+                        <a href="/" class="menu__list-link">Главная</a>
+                    </li>
+                    <li class="menu__list-item">
+                        <a href="/catalog/" class="menu__list-link">Каталог</a>
+                    </li>
+                    <li class="menu__list-item">
+                        <a href="/o-kompanii/" class="menu__list-link">О компании</a>
+                    </li>
+                    <li class="menu__list-item">
+                        <a href="/optovikam/" class="menu__list-link">Оптовикам</a>
+                    </li>
+                    <li class="menu__list-item">
+                        <a href="/optovikam/dostavka-zakazov/" class="menu__list-link">Доставка заказов</a>
+                    </li>
+                    <li class="menu__list-item">
+                        <a href="/personal/" class="menu__list-link">Личный кабинет</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="menu__info">
+                <div class="menu__logo">
+                    <figure class="menu__logo-name">
+                        <picture>
+                            <img src="https://leya-shop.ru/bitrix/templates/leya/assets/img/logo.svg" alt="">
+                        </picture>
+                    </figure>
+                    <div class="menu__logo-description">Оптово-розничный магазин пряжи и головных уборов</div>
+                </div>
+                <div class="menu__phone">
+                    <div class="menu__phone-text">Телефон:</div>
+                    <div class="menu__phone-link">+7 913 901 4757</div>
+                </div>
+                <div class="menu__address">
+                    <div class="menu__address-text">Адрес:</div>
+                    <div class="menu__address-link">Новосибирск, ул. Дегтярева, 23 (за АЗС Газпромнефть)</div>
+                </div>
+                <div class="menu__social">
+                    <div class="menu__social-list">
+                        <div class="menu__social-item">
+                            <a href="#" class="menu__social-link">
+                                <figure class="menu__social-icon">
+                                    <picture>
+                                        <img src="https://leya-shop.ru/upload/iblock/c31/c31d35aa0d993f5b3daec63dc22203b8.svg" alt="">
+                                    </picture>
+                                </figure>
+                            </a>
+                        </div>
+                        <div class="menu__social-item">
+                            <a href="#" class="menu__social-link">
+                                <figure class="menu__social-icon">
+                                    <picture>
+                                        <img src="https://leya-shop.ru/upload/iblock/c31/c31d35aa0d993f5b3daec63dc22203b8.svg" alt="">
+                                    </picture>
+                                </figure>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="menu__close js-menu-close">Закрыть</div>
+</div>
+<div class="scroll">
+    <div class="scroll__wrap">
+        <figure class="scroll__icon js-scroll-top">
+            <picture>
+                <img src="<?=SITE_TEMPLATE_PATH?>/assets/img/icons/up.svg" alt="">
+            </picture>
+        </figure>
+    </div>
+</div>
 </body>
 </html>
