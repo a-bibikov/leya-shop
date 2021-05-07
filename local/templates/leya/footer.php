@@ -2,6 +2,9 @@
 if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
     die();
 ?>
+<?if($APPLICATION->GetCurPage(false) != '/'):?>
+</div>
+<?endif?>
 <div class="footer">
     <div class="wrap">
         <div class="footer__wrap">

@@ -22,16 +22,44 @@ if(empty($arResult["DETAIL_PICTURE"]["SRC"])) {
     <div class="product">
         <div class="product__wrap">
             <div class="product__images">
-                <div class="product__images-wrap">
+                <div class="product__images-close js-images-close">Закрыть</div>
+                <div id="sync1" class="owl-carousel owl-theme product__images-wrap">
                     <div class="product__images-item">
                         <figure class="product__image">
                             <picture>
                                 <img src="<?=$image?>" alt="">
                             </picture>
                         </figure>
+                        <div class="product__zoom js-images-zoom">
+                            <div class="product__zoom-text">Увеличить</div>
+                            <figure class="product__zoom-icon">
+                                <picture>
+                                    <img src="<?=SITE_TEMPLATE_PATH?>/assets/img/icons/zoom.svg" alt="">
+                                </picture>
+                            </figure>
+                        </div>
                     </div>
+                    <?foreach($arResult["PROPERTIES"]["PHOTOES"]["VALUE"] as $photoID):
+                        $photo = CFile::GetPath($photoID);
+                        ?>
+                        <div class="product__images-item js-images-zoom">
+                            <figure class="product__image">
+                                <picture>
+                                    <img src="<?=$photo?>" alt="">
+                                </picture>
+                            </figure>
+                            <div class="product__zoom js-images-zoom">
+                                <div class="product__zoom-text">Увеличить</div>
+                                <figure class="product__zoom-icon">
+                                    <picture>
+                                        <img src="<?=SITE_TEMPLATE_PATH?>/assets/img/icons/zoom.svg" alt="">
+                                    </picture>
+                                </figure>
+                            </div>
+                        </div>
+                    <?endforeach;?>
                 </div>
-                <div class="product__thumbs">
+                <div id="sync2" class="owl-carousel owl-theme product__thumbs">
                     <div class="product__thumb">
                         <figure class="product__thumb-image">
                             <picture>
@@ -39,20 +67,24 @@ if(empty($arResult["DETAIL_PICTURE"]["SRC"])) {
                             </picture>
                         </figure>
                     </div>
+                    <?foreach($arResult["PROPERTIES"]["PHOTOES"]["VALUE"] as $thumbID):
+                        $thumb = CFile::GetPath($thumbID);
+                    ?>
                     <div class="product__thumb">
                         <figure class="product__thumb-image">
                             <picture>
-                                <img src="https://leya-shop.ru/upload/iblock/7f1/7f140cbfcd70189fbbabef2696585a9b.jpg" alt="">
+                                <img src="<?=$thumb?>" alt="">
                             </picture>
                         </figure>
                     </div>
+                    <?endforeach;?>
                 </div>
             </div>
             <div class="product__content">
                 <div class="product__content-head">
                     <div class="product__category">
                         <div class="product__category-text">Категория</div>
-                        <div class="product__category-title">ALIZE PUFFY</div>
+                        <div class="product__category-title"><a class="product__category-link" href="<?=$arResult["SECTION"]["SECTION_PAGE_URL"]?>"><?=$arResult["SECTION"]["NAME"]?></a></div>
                     </div>
                     <div class="product__price">
                         <?if(!empty($arResult["PRICES"]["WHOLESALE_PRICE"]["PRINT_VALUE"])):?>
@@ -82,6 +114,7 @@ if(empty($arResult["DETAIL_PICTURE"]["SRC"])) {
                         <a href="<?=$arResult["BUY_URL"]?>" class="product__action">Купить</a>
                     </div>
                 </div>
+                <?if(!empty($arResult["DISPLAY_PROPERTIES"])):?>
                 <div class="product__info">
                     <div class="product__info-title">Информация</div>
                     <div class="product__info-list">
@@ -93,6 +126,7 @@ if(empty($arResult["DETAIL_PICTURE"]["SRC"])) {
                         <?endforeach;?>
                     </div>
                 </div>
+                <?endif?>
             </div>
         </div>
     </div>

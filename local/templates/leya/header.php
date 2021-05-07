@@ -130,4 +130,6 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
             </div>
         </div>
     </div>
+
+    <div class="wrap">
     <?endif?>

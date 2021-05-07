@@ -166,12 +166,10 @@ $componentElementParams = array(
 );
 ?>
 <div class="product">
-    <div class="wrap">
-        <?$elementId = $APPLICATION->IncludeComponent(
-            'bitrix:catalog.element',
-            '',
-            $componentElementParams,
-            $component
-        );?>
-    </div>
+    <?$elementId = $APPLICATION->IncludeComponent(
+        'bitrix:catalog.element',
+        '',
+        $componentElementParams,
+        $component
+    );?>
 </div>

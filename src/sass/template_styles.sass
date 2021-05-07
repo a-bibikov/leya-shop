@@ -24,6 +24,22 @@ body
     max-width: 1580px
     margin: 0 auto
 
+.container
+  box-sizing: border-box
+  @media only screen and (min-width: 768px)
+    padding-left: 80px
+    padding-right: 80px
+  @media only screen and (min-width: 1024px)
+    padding-left: 160px
+    padding-right: 120px
+  @media only screen and (min-width: 1440px)
+    padding-left: 240px
+    padding-right: 200px
+  @media only screen and (min-width: 1680px)
+    padding-left: 240px
+    padding-right: 200px
+
+
 .link
   color: #FF006C
 
@@ -837,12 +853,49 @@ body
       width: 300px
 
 .product
+  margin-bottom: 80px
   @media only screen and (min-width: 1280px)
     padding-left: 40px
     padding-right: 40px
+    margin-bottom: 120px
   @media only screen and (min-width: 1440px)
     padding-left: 80px
     padding-right: 80px
+    margin-bottom: 200px
+
+
+  &__zoom
+    position: absolute
+    bottom: 0
+    right: 0
+    left: 0
+    top: 0
+    opacity: 0
+    display: flex
+    flex-wrap: wrap
+    align-items: center
+    justify-content: center
+    align-content: center
+    background: rgba(255, 255, 255, 0.1)
+    cursor: pointer
+    transition: 0.2s ease all
+
+    &-text
+      width: 100%
+      margin-bottom: 24px
+      color: #ffffff
+      text-align: center
+
+    &-icon
+      margin: 0
+      width: 40px
+      height: 40px
+
+      & picture
+        width: 100%
+        display: flex
+        align-items: center
+        justify-content: center
 
   &__wrap
     @media only screen and (min-width: 768px)
@@ -855,6 +908,124 @@ body
       width: 50%
     @media only screen and (min-width: 1440px)
       width: 40%
+
+    &:hover .product__zoom
+      opacity: 1
+
+    &-item
+      position: relative
+
+    &-close
+      display: none
+
+    &.zoom &-close
+      display: block
+      background: #272f39
+      position: fixed
+      top: 0
+      left: 0
+      right: 0
+      width: 100%
+      padding: 16px
+      color: #FFFFFF
+      font-family: 'Roboto Slab', sans-serif
+      font-size: 16px
+      z-index: 150
+      text-align: center
+      @media only screen and (min-width: 1024px)
+        left: auto
+        top: 20px
+        right: 20px
+        bottom: auto
+        width: auto
+        background: transparent
+        display: inline-flex
+        color: #141414
+        text-align: right
+        justify-content: flex-end
+        align-content: center
+        align-items: center
+        border: 1px solid
+        border-radius: 4px
+        padding: 12px 40px
+        cursor: pointer
+
+    &.zoom .product__images-wrap
+      position: fixed
+      top: 0
+      left: 0
+      right: 0
+      bottom: 0
+      width: 100%
+      height: 100vh
+      z-index: 100
+
+      & picture
+        height: 100vh
+        align-items: center
+        align-content: center
+        padding-top: 0
+
+        & img
+          height: 90vh
+          position: unset
+
+    &.zoom .product__zoom
+      display: none
+
+    &.zoom .owl-nav
+      height: 100vh !important
+      top: 0 !important
+
+      & button
+        width: 20% !important
+        height: 100% !important
+
+        &:hover
+          background: rgba(0, 0, 0, 0.05) !important
+
+
+    & .owl-dots
+      display: none !important
+
+    & .owl-nav
+      margin-top: 0 !important
+      position: absolute
+      top: calc(50% - 20px)
+      left: 0
+      right: 0
+      width: 100%
+      display: flex
+      flex-wrap: wrap
+      justify-content: space-between
+      align-items: center
+
+      & svg
+        width: 20px
+        height: 40px
+
+      & .owl-prev
+        width: 20px
+        height: 40px
+        padding: 4px
+        box-sizing: border-box
+        background: #FFFFFF
+        border: 1px solid
+        outline: none
+        appearance: none
+
+      & .owl-next
+        width: 20px
+        height: 40px
+        padding: 4px
+        box-sizing: border-box
+        background: #FFFFFF
+        border: 1px solid
+        outline: none
+        appearance: none
+
+    & [class*=owl-]:hover
+      background: transparent !important
 
   &__image
     margin: 0
@@ -885,13 +1056,13 @@ body
           background: #eeeeee
           width: 100%
 
+
   &__thumbs
     display: flex
     margin-top: 40px
 
   &__thumb
-    width: 80px
-    height: 80px
+    height: 120px
 
     &:not(:last-child)
       margin-right: 12px
@@ -900,8 +1071,12 @@ body
       margin: 0
       display: block
       width: 100%
-      height: 100%
+      height: 97%
       border: 1px solid #eeeeee
+      padding: 4px
+      box-sizing: border-box
+      @media only screen and (min-width: 768px)
+        padding: 8px
 
       & picture
         display: flex
@@ -909,16 +1084,19 @@ body
         justify-content: center
         align-items: center
         width: 100%
-        height: 100%
-        padding: 4px
+        padding-top: 100%
         box-sizing: border-box
-        @media only screen and (min-width: 768px)
-          padding: 8px
+        position: relative
+        height: 100%
 
         & img
-          max-width: 100%
-          max-height: 100%
-          display: block
+          width: 100%
+          height: 100%
+          object-fit: cover !important
+          position: absolute
+          top: 0
+          left: 0
+          z-index: 1
 
   &__content
     margin-top: 60px
@@ -942,12 +1120,14 @@ body
       margin-bottom: 2px
 
     &-title
+      text-transform: uppercase
+
+    &-link
       color: #fe2c6c
       font-size: 16px
-      text-transform: uppercase
-      border-bottom: 1px solid
-      display: inline-block
       padding: 2px
+      text-decoration: none
+      display: inline-block
 
   &__price
     margin-top: 40px
@@ -989,6 +1169,9 @@ body
       display: flex
       flex-wrap: wrap
       align-items: baseline
+      justify-content: center
+      @media only screen and (min-width: 768px)
+        justify-content: flex-start
 
   &__actions
     margin-top: 40px
@@ -1013,6 +1196,9 @@ body
     box-sizing: border-box
     align-items: center
     justify-content: space-between
+    @media only screen and (min-width: 1024px)
+      width: auto
+      padding: 16px 24px
 
     &:before
       display: inline-flex
@@ -1021,6 +1207,8 @@ body
       background: #ffffff
       border-radius: 50%
       content: ''
+      @media only screen and (min-width: 1024px)
+        margin-right: 24px
 
     &:after
       display: inline-flex
@@ -1029,6 +1217,8 @@ body
       background: #ffffff
       border-radius: 50%
       content: ''
+      @media only screen and (min-width: 1024px)
+        margin-left: 24px
 
   &__info
     margin-top: 60px
@@ -2157,8 +2347,10 @@ textarea.form__input
   border: 20px solid #D2DADE
   display: none
   z-index: 1000
+
   &.active
     display: block
+
   @media only screen and (min-width: 768px)
     border: 28px solid #D2DADE
   @media only screen and (min-width: 1280px)
@@ -2210,6 +2402,7 @@ textarea.form__input
     @media only screen and (min-width: 1280px)
       max-width: 1080px
       min-height: auto
+
   &__list
     margin-bottom: 60px
     @media only screen and (min-width: 768px)
@@ -2219,15 +2412,18 @@ textarea.form__input
       width: 50%
       padding-right: 60px
       box-sizing: border-box
+
     &-items
       margin: 0
       padding: 0
       list-style: none
+
     &-item
       &:not(:last-child)
         margin-bottom: 28px
         @media only screen and (min-width: 768px)
           margin-bottom: 40px
+
     &-link
       font-family: 'Roboto Slab', sans-serif
       font-size: 16px
@@ -2241,11 +2437,14 @@ textarea.form__input
   &__info
     @media only screen and (min-width: 1024px)
       width: 50%
+
   &__logo
     margin-bottom: 40px
+
     &-name
       margin: 0
       max-width: 160px
+
     &-description
       font-size: 12px
       line-height: 1.5
@@ -2253,24 +2452,29 @@ textarea.form__input
 
   &__phone
     margin-bottom: 40px
+
     &-text
       font-family: 'Roboto Slab', sans-serif
       font-size: 12px
       opacity: 0.65
       margin-bottom: 8px
+
     &-link
       font-size: 20px
       font-weight: 600
       font-family: 'Roboto Slab', sans-serif
       @media only screen and (min-width: 768px)
         font-size: 32px
+
   &__address
     margin-bottom: 40px
+
     &-text
       font-family: 'Roboto Slab', sans-serif
       font-size: 12px
       opacity: 0.65
       margin-bottom: 8px
+
     &-link
       font-size: 14px
       line-height: 1.5
@@ -2283,13 +2487,17 @@ textarea.form__input
       display: flex
       flex-wrap: wrap
       align-items: center
+
     &-link
       display: block
+
     &-item
       & picture
         display: block
+
       &:not(:last-child)
         margin-right: 12px
+
     &-icon
       margin: 0
 
@@ -2298,8 +2506,10 @@ textarea.form__input
   bottom: 20px
   right: 20px
   display: none
+
   &.active
     display: block
+
   &__icon
     margin: 0
     width: 64px
@@ -2308,7 +2518,8 @@ textarea.form__input
     box-sizing: border-box
     background: #FFFFFF
     border-radius: 50%
-    box-shadow: 12px 12px 30px rgba(0,0,0,0.16)
+    box-shadow: 12px 12px 30px rgba(0, 0, 0, 0.16)
+
     & picture
       width: 100%
       height: 100%
@@ -2316,5 +2527,143 @@ textarea.form__input
       flex-wrap: wrap
       justify-content: center
       align-items: center
+
       & img
         width: 100%
+
+.auth
+  &__info
+    padding-left: 32px
+    box-sizing: border-box
+
+    & .errortext
+      margin-bottom: 24px
+      display: block
+
+  &__form
+    max-width: 360px
+
+    &-actions
+      display: flex
+      flex-wrap: wrap
+      justify-content: center
+      @media only screen and (min-width: 768px)
+        align-items: center
+        justify-content: flex-start
+
+    &-action
+      width: 100%
+      @media only screen and (min-width: 768px)
+        width: auto
+        margin-right: 20px
+
+    &-link
+      display: inline-block
+      opacity: 0.65
+      color: #141414
+      margin-top: 24px
+      @media only screen and (min-width: 768px)
+        margin-top: 0
+
+  &__social
+    margin-top: 60px
+
+.reg__form
+  margin-bottom: 120px
+
+.orders
+  margin-bottom: 120px
+
+  &__tabs
+    display: flex
+    flex-wrap: wrap
+    margin-bottom: 32px
+
+  &__tab
+    opacity: 0.65
+    &:not(:last-child)
+      margin-bottom: 20px
+      @media only screen and (min-width: 768px)
+        margin-bottom: 0
+
+    &:not(:last-child)
+      margin-right: 20px
+
+    & a
+      color: #141414
+
+    &--current
+      opacity: 1
+      font-weight: 600
+
+      & a
+        color: #ff006c
+
+    &-link
+      font-size: 16px
+      font-family: 'Roboto Slab', sans-serif
+      text-decoration: none
+
+.order
+  &__item
+    display: flex
+    flex-wrap: wrap
+    background: #E8EDF1
+    width: 100%
+    padding: 40px
+    box-sizing: border-box
+
+    &:not(:last-child)
+      margin-bottom: 40px
+
+    &-wrap
+      display: flex
+      flex-wrap: wrap
+      justify-content: flex-start
+      width: 100%
+
+    &-left
+      width: 100%
+      margin-bottom: 24px
+      @media only screen and (min-width: 768px)
+        width: 50%
+
+    &-right
+      width: 100%
+      @media only screen and (min-width: 768px)
+        width: 50%
+
+    &-name
+      font-family: 'Roboto Slab', sans-serif
+      font-size: 16px
+      color: #141414
+      width: 100%
+      display: block
+      @media only screen and (min-width: 768px)
+        font-size: 24px
+
+    &-status
+      margin-top: 12px
+      display: inline-flex
+      padding: 8px 16px
+      border-radius: 4px
+      &--general
+        background: #fe2c6c
+        color: #fff
+      &--payed
+        background: #03ad20
+        color: #fff
+
+    &-price
+      font-family: 'Roboto Slab', sans-serif
+      font-size: 16px
+      color: #141414
+      width: 100%
+      display: block
+      @media only screen and (min-width: 768px)
+        font-size: 24px
+
+    &-payment
+      margin-top: 12px
+      font-size: 14px
+      opacity: 0.65
