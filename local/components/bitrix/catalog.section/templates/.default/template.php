@@ -21,7 +21,29 @@ use \Bitrix\Main\Localization\Loc;
  */
 
 $this->setFrameMode(true);
+
+if (!empty($arResult['NAV_RESULT']))
+{
+    $navParams =  array(
+        'NavPageCount' => $arResult['NAV_RESULT']->NavPageCount,
+        'NavPageNomer' => $arResult['NAV_RESULT']->NavPageNomer,
+        'NavNum' => $arResult['NAV_RESULT']->NavNum
+    );
+}
+else
+{
+    $navParams = array(
+        'NavPageCount' => 1,
+        'NavPageNomer' => 1,
+        'NavNum' => $this->randString()
+    );
+}
 ?>
+<div data-pagination-num="<?=$navParams['NavNum']?>">
+    <!-- pagination-container -->
+    <?=$arResult['NAV_STRING']?>
+    <!-- pagination-container -->
+</div>
 <div class="products__list">
 <?foreach ($arResult["ITEMS"] as $arItem):?>
     <div class="catalog__item">
@@ -32,6 +54,10 @@ $this->setFrameMode(true);
                     <img src="<?=SITE_TEMPLATE_PATH?>/assets/img/empty.svg" alt="" class="catalog__item-image">
                 <?else:?>
                     <img src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>" alt="" class="catalog__item-image">
+                    <?if(!empty($arItem["PROPERTIES"]["PHOTO"]["VALUE"])):?>
+                        <? $arItemImage = CFile::GetPath($arItem["PROPERTIES"]["PHOTO"]["VALUE"]); ?>
+                        <img src="<?=$arItemImage?>" alt="" class="catalog__item-image alt-image">
+                    <?endif?>
                 <?endif?>
             </picture>
             </a>
@@ -53,4 +79,9 @@ $this->setFrameMode(true);
     </div>
 <?endforeach;?>
 </div>
-<?printr($arResult["ITEMS"][0])?>
+<div data-pagination-num="<?=$navParams['NavNum']?>">
+    <!-- pagination-container -->
+    <?=$arResult['NAV_STRING']?>
+    <!-- pagination-container -->
+</div>
+<?//printr($arResult["ITEMS"][0])?>

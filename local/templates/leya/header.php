@@ -71,7 +71,7 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
                 </div>
             </div>
             <div class="welcome__meta">
-                <div class="welcome__copyright">2017–2020 © leyashapki.ru</div>
+                <div class="welcome__copyright">2017–2020 © leya-shop.ru</div>
                 <div class="welcome__social">
                     <div class="welcome__social-title">Следуйте за нами</div>
                     <div class="welcome__social-list">

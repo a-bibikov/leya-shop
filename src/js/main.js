@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function(){
     $('#welcome__slider').owlCarousel({
         items: 1,
         loop: true,
@@ -14,4 +14,24 @@ $(document).ready(function() {
         mouseDrag: true,
         touchDrag: true,
     });
+
+    const alert = $('.alert');
+    $('a[href*="ADD2BASKET"]').on('click', (e) => {
+        e.preventDefault();
+        const url = e.target.href;
+        console.log(e)
+        $.ajax({
+            url: url,
+            async: false,
+            success: () => {
+                alert.addClass('active');
+                e.target.classList.add('active');
+                e.target.innerHTML = 'В корзине';
+            }
+        })
+    })
+
+    $('.js-alert-close').on('click', () => {
+        alert.removeClass('active');
+    })
 });

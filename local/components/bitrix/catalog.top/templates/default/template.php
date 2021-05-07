@@ -50,7 +50,7 @@ if (!empty($arResult['ITEMS']))
                                     <div class="catalog__item-curprice"><?=$arItem["MIN_PRICE"]["PRINT_DISCOUNT_VALUE"]?></div>
                                 <?endif?>
                             </div>
-                            <a href="<?=$arItem["ADD_URL"]?>" class="catalog__item-addtocart">В корзину</a>
+                            <a href="<?=$arItem["ADD_URL"]?>" class="catalog__item-addtocart">Купить</a>
                         </div>
                     </div>
                 </div>
@@ -58,4 +58,4 @@ if (!empty($arResult['ITEMS']))
 		</div>
 	</div>
 </div>
-<?//printr($arResult)?>
+<?//printr($arResult["ITEMS"][0])?>

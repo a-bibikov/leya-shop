@@ -158,5 +158,21 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
         </div>
     </div>
 </div>
+<div class="alert">
+    <div class="alert__wrap">
+        <div class="alert__content">
+            <div class="alert__title">Товар добавлен в корзину</div>
+            <div class="alert__actions">
+                <div class="alert__action">
+                    <a href="/personal/cart/" class="action">Оформить заказ</a>
+                </div>
+                <div class="alert__action">
+                    <div class="link js-alert-close">Продолжить покупки</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="alert__overlay js-alert-close"></div>
+</div>
 </body>
 </html>
