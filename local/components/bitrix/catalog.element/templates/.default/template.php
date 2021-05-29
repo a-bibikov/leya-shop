@@ -22,6 +22,14 @@ if(empty($arResult["DETAIL_PICTURE"]["SRC"])) {
     <div class="product">
         <div class="product__wrap">
             <div class="product__images">
+                <div class="product__zoom js-images-zoom">
+                    <div class="product__zoom-text">Увеличить</div>
+                    <figure class="product__zoom-icon">
+                        <picture>
+                            <img src="<?=SITE_TEMPLATE_PATH?>/assets/img/icons/zoom.svg" alt="">
+                        </picture>
+                    </figure>
+                </div>
                 <div class="product__images-close js-images-close">Закрыть</div>
                 <div id="sync1" class="owl-carousel owl-theme product__images-wrap">
                     <div class="product__images-item">
@@ -30,14 +38,6 @@ if(empty($arResult["DETAIL_PICTURE"]["SRC"])) {
                                 <img src="<?=$image?>" alt="">
                             </picture>
                         </figure>
-                        <div class="product__zoom js-images-zoom">
-                            <div class="product__zoom-text">Увеличить</div>
-                            <figure class="product__zoom-icon">
-                                <picture>
-                                    <img src="<?=SITE_TEMPLATE_PATH?>/assets/img/icons/zoom.svg" alt="">
-                                </picture>
-                            </figure>
-                        </div>
                     </div>
                     <?foreach($arResult["PROPERTIES"]["PHOTOES"]["VALUE"] as $photoID):
                         $photo = CFile::GetPath($photoID);
@@ -130,4 +130,4 @@ if(empty($arResult["DETAIL_PICTURE"]["SRC"])) {
             </div>
         </div>
     </div>
-<?printr($arResult);?>
+<?//printr($arResult);?>
