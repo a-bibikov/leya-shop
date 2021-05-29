@@ -796,6 +796,12 @@ body
       & a
         text-decoration: none
         color: #141414
+        @media only screen and (min-width: 1024px)
+          transition: 0.3s ease all
+          &:hover
+            color: #ff006c
+            text-decoration: underline
+            cursor: pointer
 
     &-count
       font-size: 12px
@@ -866,7 +872,7 @@ body
 
   &__zoom
     position: absolute
-    bottom: 0
+    bottom: 120px
     right: 0
     left: 0
     top: 0
@@ -879,6 +885,7 @@ body
     background: rgba(255, 255, 255, 0.1)
     cursor: pointer
     transition: 0.2s ease all
+    z-index: 10
 
     &-text
       width: 100%
@@ -897,6 +904,10 @@ body
         align-items: center
         justify-content: center
 
+      & img
+        width: 40px
+        height: 40px
+
   &__wrap
     @media only screen and (min-width: 768px)
       display: flex
@@ -904,6 +915,7 @@ body
       justify-content: space-between
 
   &__images
+    position: relative
     @media only screen and (min-width: 768px)
       width: 50%
     @media only screen and (min-width: 1440px)
@@ -911,6 +923,7 @@ body
 
     &:hover .product__zoom
       opacity: 1
+      display: flex
 
     &-item
       position: relative
@@ -967,11 +980,11 @@ body
         padding-top: 0
 
         & img
-          height: 90vh
           position: unset
 
     &.zoom .product__zoom
       display: none
+      z-index: 10
 
     &.zoom .owl-nav
       height: 100vh !important
@@ -1604,6 +1617,13 @@ body
       padding: 12px 24px
       display: inline-flex
       line-height: 1.5
+      @media only screen and (min-width: 1024px)
+        transition: 0.3s ease all
+        cursor: pointer
+        &:hover
+          background: #ff006c
+          color: #FFFFFF
+          border-color: #ff006c
       @media only screen and (min-width: 1280px)
         padding: 16px 44px
         font-size: 20px
@@ -1780,26 +1800,16 @@ body
 
 .contacts
   &__page
-    padding-left: 20px
-    padding-right: 20px
     box-sizing: border-box
     margin-bottom: 120px
 
   &__wrap
     max-width: 400px
     margin: 0 auto 60px
-    @media only screen and (min-width: 768px)
-      margin-left: 100px
     @media only screen and (min-width: 1024px)
       max-width: 100%
-      padding-left: 100px
-      padding-right: 100px
       display: flex
       flex-wrap: wrap
-      margin-left: 80px
-    @media only screen and (min-width: 1440px)
-      padding-left: 270px
-      padding-right: 180px
 
   &__image
     margin: 0
@@ -1859,15 +1869,10 @@ body
 
   &__form
     @media only screen and (min-width: 768px)
-      padding-left: 100px
-      padding-right: 100px
       margin-top: 80px
     @media only screen and (min-width: 1024px)
-      margin-left: 80px
       margin-top: 160px
     @media only screen and (min-width: 1440px)
-      padding-left: 270px
-      padding-right: 180px
       max-width: 680px
 
 .opt__form
@@ -2653,6 +2658,8 @@ textarea.form__input
       &--payed
         background: #03ad20
         color: #fff
+      &--done
+        background: #ffffff
 
     &-price
       font-family: 'Roboto Slab', sans-serif
@@ -2667,3 +2674,9 @@ textarea.form__input
       margin-top: 12px
       font-size: 14px
       opacity: 0.65
+
+.orders__empty
+  border: 1px solid #eeeeee
+  padding: 40px 60px
+  display: inline-flex
+  border-radius: 4px
