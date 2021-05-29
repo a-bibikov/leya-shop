@@ -96,4 +96,8 @@ if (0 < $arResult['SECTIONS_COUNT'])
 		}
 	}
 }
+//printr($arParams);
+$arResult["SECTION_TITLE"] = $arParams["SECTION_TITLE"];
+$arResult["SECTION_INFO"] = $arParams["SECTION_INFO"];
+//printr($arResult);
 ?>

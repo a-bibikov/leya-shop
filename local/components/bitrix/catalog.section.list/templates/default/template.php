@@ -16,8 +16,8 @@ $this->setFrameMode(true);
     <div class="wrap">
         <div class="sections__wrap">
             <div class="sections__info">
-                <div class="sections__info-title">Пряжа оптом</div>
-                <div class="sections__info-text">Мы сотрудничаем с производителями из Канады, Польши, Украины, Китая и России.</div>
+                <div class="sections__info-title"><?=$arResult["SECTION_TITLE"]?></div>
+                <div class="sections__info-text"><?=$arResult["SECTION_INFO"]?></div>
             </div>
             <div class="sections__list">
                 <?foreach ($arResult["SECTIONS"] as $arSection):?>

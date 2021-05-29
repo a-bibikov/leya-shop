@@ -394,3 +394,5 @@ if($arResult["SECTIONS_COUNT"] > 0 || isset($arResult["SECTION"]))
 		}
 	}
 }
+
+//printr($arParams)?>

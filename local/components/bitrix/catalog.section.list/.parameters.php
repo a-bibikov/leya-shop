@@ -48,8 +48,24 @@ if ($isProducts)
 
 $arComponentParameters = array(
 	"GROUPS" => array(
+        "INFO" => [
+            "NAME" => "Информация о разделе",
+            "SORT" => 10,
+        ],
 	),
 	"PARAMETERS" => array(
+        "SECTION_TITLE" => [
+            "PARENT" => "INFO",
+            "NAME" => "Заголовок",
+            "TYPE" => "STRING",
+            "ADDITIONAL_VALUES" => "N",
+        ],
+        "SECTION_INFO" => [
+            "PARENT" => "INFO",
+            "NAME" => "Описание раздела",
+            "TYPE" => "STRING",
+            "ADDITIONAL_VALUES" => "N",
+        ],
 		"IBLOCK_TYPE" => array(
 			"PARENT" => "BASE",
 			"NAME" => GetMessage("CP_BCSL_IBLOCK_TYPE"),
