@@ -33,41 +33,47 @@ Loc::loadMessages(__FILE__);
     <?endif?>
 
     <div class="order__list">
-    <?foreach($arResult["ORDERS"] as $arOrder):?>
-        <?
-            $status = $arOrder["ORDER"]["STATUS_ID"];
-            $status_class = "order__item-status";
-            switch ($status) {
-                case "N":
-                    $status_text = "Принят, ожидается оплата";
-                    $status_class .= "--general";
-                    break;
-                case "P":
-                    $status_text = "Заказ оплачен";
-                    $status_class .= "--payed";
-                    break;
-                case "F":
-                    $status_text = "Заказ выполнен";
-                    $status_class .= "--done";
-                    break;
-                default:
-                    $status_text = "";
-            }
-        ?>
-        <div class="order__item">
-            <div class="order__item-wrap">
-                <div class="order__item-left">
-                    <div class="order__item-name">Заказ #<?=$arOrder["ORDER"]["ACCOUNT_NUMBER"]?> от <?=$arOrder["ORDER"]["DATE_INSERT_FORMATED"]?></div>
-<!--                    <a href="--><?//=$arOrder["ORDER"]["URL_TO_DETAIL"]?><!--" class="order__item-name">Заказ #--><?//=$arOrder["ORDER"]["ACCOUNT_NUMBER"]?><!-- от --><?//=$arOrder["ORDER"]["DATE_INSERT_FORMATED"]?><!--</a>-->
-                    <div class="order__item-status <?=$status_class?>"><?=$status_text?></div>
+        <?if(!empty($arResult["ORDERS"])):?>
+            <?foreach($arResult["ORDERS"] as $arOrder):?>
+                <?
+                    $status = $arOrder["ORDER"]["STATUS_ID"];
+                    $status_class = "order__item-status";
+                    switch ($status) {
+                        case "N":
+                            $status_text = "Принят, ожидается оплата";
+                            $status_class .= "--general";
+                            break;
+                        case "P":
+                            $status_text = "Заказ оплачен";
+                            $status_class .= "--payed";
+                            break;
+                        case "F":
+                            $status_text = "Заказ выполнен";
+                            $status_class .= "--done";
+                            break;
+                        default:
+                            $status_text = "";
+                    }
+                ?>
+                <div class="order__item">
+                    <div class="order__item-wrap">
+                        <div class="order__item-left">
+                            <div class="order__item-name">Заказ #<?=$arOrder["ORDER"]["ACCOUNT_NUMBER"]?> от <?=$arOrder["ORDER"]["DATE_INSERT_FORMATED"]?></div>
+        <!--                    <a href="--><?//=$arOrder["ORDER"]["URL_TO_DETAIL"]?><!--" class="order__item-name">Заказ #--><?//=$arOrder["ORDER"]["ACCOUNT_NUMBER"]?><!-- от --><?//=$arOrder["ORDER"]["DATE_INSERT_FORMATED"]?><!--</a>-->
+                            <div class="order__item-status <?=$status_class?>"><?=$status_text?></div>
+                        </div>
+                        <div class="order__item-right">
+                            <div class="order__item-price"><?=$arOrder["ORDER"]["FORMATED_PRICE"]?></div>
+                            <div class="order__item-payment"><?=$arOrder["PAYMENT"][0]["PAY_SYSTEM_NAME"]?></div>
+                        </div>
+                    </div>
                 </div>
-                <div class="order__item-right">
-                    <div class="order__item-price"><?=$arOrder["ORDER"]["FORMATED_PRICE"]?></div>
-                    <div class="order__item-payment"><?=$arOrder["PAYMENT"][0]["PAY_SYSTEM_NAME"]?></div>
-                </div>
+            <?endforeach?>
+        <?else:?>
+            <div class="orders__empty">
+                Заказов пока нет
             </div>
-        </div>
-    <?endforeach?>
+        <?endif?>
     </div>
 </div>
 <?//printr($arResult["ORDERS"])?>
