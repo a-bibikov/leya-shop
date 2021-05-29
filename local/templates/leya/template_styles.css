@@ -780,7 +780,7 @@ body {
 
 .product__zoom {
   position: absolute;
-  bottom: 0;
+  bottom: 120px;
   right: 0;
   left: 0;
   top: 0;
@@ -803,6 +803,7 @@ body {
   -webkit-transition: 0.2s ease all;
   -o-transition: 0.2s ease all;
   transition: 0.2s ease all;
+  z-index: 10;
 }
 
 .product__zoom-text {
@@ -831,8 +832,20 @@ body {
           justify-content: center;
 }
 
+.product__zoom-icon img {
+  width: 40px;
+  height: 40px;
+}
+
+.product__images {
+  position: relative;
+}
+
 .product__images:hover .product__zoom {
   opacity: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .product__images-item {
@@ -881,12 +894,12 @@ body {
 }
 
 .product__images.zoom .product__images-wrap picture img {
-  height: 90vh;
   position: unset;
 }
 
 .product__images.zoom .product__zoom {
   display: none;
+  z-index: 10;
 }
 
 .product__images.zoom .owl-nav {
@@ -1690,8 +1703,6 @@ body {
 }
 
 .contacts__page {
-  padding-left: 20px;
-  padding-right: 20px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   margin-bottom: 120px;
@@ -2536,6 +2547,10 @@ textarea.form__input {
   color: #fff;
 }
 
+.order__item-status--done {
+  background: #ffffff;
+}
+
 .order__item-price {
   font-family: 'Roboto Slab', sans-serif;
   font-size: 16px;
@@ -2548,6 +2563,15 @@ textarea.form__input {
   margin-top: 12px;
   font-size: 14px;
   opacity: 0.65;
+}
+
+.orders__empty {
+  border: 1px solid #eeeeee;
+  padding: 40px 60px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  border-radius: 4px;
 }
 
 @media only screen and (min-width: 414px) {
@@ -3004,13 +3028,7 @@ textarea.form__input {
     margin-bottom: 160px;
   }
 
-  .contacts__wrap {
-    margin-left: 100px;
-  }
-
   .contacts__form {
-    padding-left: 100px;
-    padding-right: 100px;
     margin-top: 80px;
   }
 
@@ -3269,6 +3287,18 @@ textarea.form__input {
     margin: 40px 20px;
   }
 
+  .sections__item-title a {
+    -webkit-transition: 0.3s ease all;
+    -o-transition: 0.3s ease all;
+    transition: 0.3s ease all;
+  }
+
+  .sections__item-title a:hover {
+    color: #ff006c;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
   .products .catalog__item {
     width: calc(100% / 3 - 24px);
   }
@@ -3339,6 +3369,19 @@ textarea.form__input {
     margin-top: 40px;
   }
 
+  .welcome__item-action {
+    -webkit-transition: 0.3s ease all;
+    -o-transition: 0.3s ease all;
+    transition: 0.3s ease all;
+    cursor: pointer;
+  }
+
+  .welcome__item-action:hover {
+    background: #ff006c;
+    color: #FFFFFF;
+    border-color: #ff006c;
+  }
+
   .about__page {
     padding-left: 160px;
     padding-right: 120px;
@@ -3350,14 +3393,11 @@ textarea.form__input {
 
   .contacts__wrap {
     max-width: 100%;
-    padding-left: 100px;
-    padding-right: 100px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
-    margin-left: 80px;
   }
 
   .contacts__image {
@@ -3373,7 +3413,6 @@ textarea.form__input {
   }
 
   .contacts__form {
-    margin-left: 80px;
     margin-top: 160px;
   }
 
@@ -3818,14 +3857,7 @@ textarea.form__input {
     margin-bottom: 240px;
   }
 
-  .contacts__wrap {
-    padding-left: 270px;
-    padding-right: 180px;
-  }
-
   .contacts__form {
-    padding-left: 270px;
-    padding-right: 180px;
     max-width: 680px;
   }
 

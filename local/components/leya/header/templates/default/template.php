@@ -41,14 +41,13 @@
                 </a>
             </div>
             <div class="header__personal">
-                <div class="header__cart">
-                    <figure class="header__cart-icon">
-                        <picture>
-                            <img src="<?=SITE_TEMPLATE_PATH?>/assets/img/icons/cart--light.svg" alt="">
-                        </picture>
-                    </figure>
-                    <div class="header__cart-num">12</div>
-                </div>
+                <?$APPLICATION->IncludeComponent(
+                    "bitrix:sale.basket.basket.line",
+                    "",
+                    array(
+                    ),
+                    false
+                );?>
             </div>
             <div class="header__menu js-menu-show">
                 <figure class="header__menu-icon">
